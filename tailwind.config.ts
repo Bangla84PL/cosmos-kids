@@ -38,6 +38,13 @@ const config: Config = {
           error: "#dc3545",
           info: "#17a2b8",
         },
+        // Neutral Colors
+        white: "#ffffff",
+        "off-white": "#f8f9fa",
+        "light-gray": "#e9ecef",
+        gray: "#6c757d",
+        "dark-gray": "#343a40",
+        "almost-black": "#212529",
       },
       fontFamily: {
         sans: ["Jost", "ui-sans-serif", "system-ui", "sans-serif"],
