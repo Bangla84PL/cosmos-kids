@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* SmartCamp.AI Brand Colors */
+  --color-brand-jungle: #1a4d2e;
+  --color-brand-forest: #2d6a4f;
+  --color-brand-mint: #52b788;
+  --color-brand-light-mint: #95d5b2;
+  --color-brand-sage: #d8f3dc;
+
+  /* Accent Colors */
+  --color-accent-orange: #ff9f1c;
+  --color-accent-coral: #ffbf69;
+
+  /* Support Colors */
+  --color-support-deep-blue: #2c3e50;
+  --color-support-sky-blue: #4a90e2;
+
+  /* CosmosKids Space Theme */
+  --color-space-deep-blue: #0f0f23;
+  --color-space-dark-blue: #1a1a3e;
+  --color-space-purple: #6b46c1;
+  --color-space-yellow: #ffd700;
+
+  /* Neutral Colors */
+  --color-white: #ffffff;
+  --color-off-white: #f8f9fa;
+  --color-light-gray: #e9ecef;
+  --color-gray: #6c757d;
+  --color-dark-gray: #343a40;
+  --color-almost-black: #212529;
+
+  /* Semantic Colors */
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-error: #dc3545;
+  --color-info: #17a2b8;
+
+  /* Glassmorphism */
+  --glass-bg-light: rgba(255, 255, 255, 0.15);
+  --glass-bg-medium: rgba(255, 255, 255, 0.25);
+  --glass-bg-heavy: rgba(255, 255, 255, 0.35);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-brand-sage font-sans text-dark-gray antialiased;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Jungle background for SmartCamp.AI brand */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(135deg, #1a4d2e 0%, #2d6a4f 100%);
+    /* Fallback until actual jungle background image is added */
+    z-index: -2;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(26, 77, 46, 0.3);
+    z-index: -1;
+  }
+
+  /* When jungle background image is available, uncomment: */
+  /*
+  body::before {
+    background-image: url('/branding/jungle-background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  */
+
+  h1 {
+    @apply text-h1;
+  }
+
+  h2 {
+    @apply text-h2;
+  }
+
+  h3 {
+    @apply text-h3;
+  }
+
+  h4 {
+    @apply text-h4;
+  }
+
+  p {
+    @apply text-body;
+  }
+
+  a {
+    @apply text-brand-jungle underline-offset-4 hover:text-brand-mint hover:underline;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    @apply rounded-lg shadow-glass;
+  }
+
+  .glass-card-medium {
+    background: var(--glass-bg-medium);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    @apply rounded-lg shadow-glass;
+  }
+
+  .glass-card-heavy {
+    background: var(--glass-bg-heavy);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    @apply rounded-lg shadow-glass;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-6 py-3 font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-jungle text-white hover:bg-brand-forest hover:-translate-y-0.5 hover:shadow-lg focus:ring-brand-mint;
+  }
+
+  .btn-secondary {
+    @apply btn border-2 border-brand-jungle bg-transparent text-brand-jungle hover:bg-brand-jungle hover:text-white focus:ring-brand-mint;
+  }
+
+  .btn-accent {
+    @apply btn bg-accent-orange text-white hover:bg-accent-coral focus:ring-accent-orange;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-dark-gray hover:bg-black/5 focus:ring-gray;
+  }
+
+  /* Card */
+  .card {
+    @apply rounded-lg bg-white/95 p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-lg;
+  }
+
+  /* Input */
+  .input {
+    @apply w-full rounded-md border border-light-gray bg-white/90 px-4 py-3 text-body transition-all duration-300 placeholder:text-gray focus:border-brand-mint focus:outline-none focus:ring-2 focus:ring-brand-mint/20;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-caption font-medium;
+  }
+
+  .badge-success {
+    @apply badge bg-semantic-success/10 text-semantic-success;
+  }
+
+  .badge-warning {
+    @apply badge bg-semantic-warning/10 text-semantic-warning;
+  }
+
+  .badge-error {
+    @apply badge bg-semantic-error/10 text-semantic-error;
+  }
+
+  .badge-info {
+    @apply badge bg-semantic-info/10 text-semantic-info;
+  }
+
+  /* Container */
+  .container-app {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Space Theme Specific */
+  .space-gradient {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #6b46c1 100%);
+  }
+
+  .stars-bg {
+    background-image: radial-gradient(2px 2px at 20px 30px, white, transparent),
+      radial-gradient(2px 2px at 60px 70px, white, transparent),
+      radial-gradient(1px 1px at 50px 50px, white, transparent),
+      radial-gradient(1px 1px at 130px 80px, white, transparent),
+      radial-gradient(2px 2px at 90px 10px, white, transparent);
+    background-size: 200px 200px;
+    background-color: #0f0f23;
+  }
+}
+
+@layer utilities {
+  /* Text utilities */
+  .text-display {
+    @apply text-display;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  /* Scrollbar styling */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-light-gray rounded;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-gray rounded hover:bg-dark-gray;
+  }
+}

@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  cosmoskids:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cosmoskids-app
+    restart: unless-stopped
+    env_file:
+      - .env.production
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.cosmoskids.rule=Host(`cosmoskids.smartcamp.ai`)"
+      - "traefik.http.routers.cosmoskids.entrypoints=websecure"
+      - "traefik.http.routers.cosmoskids.tls=true"
+      - "traefik.http.routers.cosmoskids.tls.certresolver=letsencrypt"
+      - "traefik.http.services.cosmoskids.loadbalancer.server.port=3000"
+    networks:
+      - smartcamp-network
+
+networks:
+  smartcamp-network:
+    external: true
