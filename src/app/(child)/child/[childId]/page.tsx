@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import type { Child, Module } from '@/lib/types/database';
 import Card from '@/components/ui/Card';
@@ -12,7 +12,6 @@ import Link from 'next/link';
 
 export default function ChildDashboard() {
   const params = useParams();
-  const router = useRouter();
   const childId = params.childId as string;
   const [child, setChild] = useState<Child | null>(null);
   const [modules, setModules] = useState<Module[]>([]);

@@ -48,10 +48,6 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
     @apply bg-brand-sage font-sans text-dark-gray antialiased;
     min-height: 100vh;
@@ -218,11 +214,6 @@
 }
 
 @layer utilities {
-  /* Text utilities */
-  .text-display {
-    @apply text-display;
-  }
-
   /* Animation utilities */
   .animate-fade-in {
     animation: fadeIn 0.3s ease-out;
