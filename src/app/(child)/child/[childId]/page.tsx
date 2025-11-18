@@ -10,6 +10,9 @@ import Button from '@/components/ui/Button';
 import { Award, TrendingUp, Star, Rocket } from 'lucide-react';
 import Link from 'next/link';
 
+// Force dynamic rendering to prevent build-time errors with Supabase client
+export const dynamic = 'force-dynamic';
+
 export default function ChildDashboard() {
   const params = useParams();
   const childId = params.childId as string;

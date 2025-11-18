@@ -9,6 +9,9 @@ import Card from '@/components/ui/Card';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
+// Force dynamic rendering to prevent build-time errors with Supabase client
+export const dynamic = 'force-dynamic';
+
 export default function AddChildPage() {
   const router = useRouter();
   const [name, setName] = useState('');

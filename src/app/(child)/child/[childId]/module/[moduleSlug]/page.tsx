@@ -22,6 +22,9 @@ import type { ReadingArticle } from '@/lib/content/reading';
 import type { VideoContent } from '@/lib/content/videos';
 import { calculateLevel } from '@/lib/gamification/xp';
 
+// Force dynamic rendering to prevent build-time errors with Supabase client
+export const dynamic = 'force-dynamic';
+
 export default function ModulePage() {
   const params = useParams();
   const router = useRouter();

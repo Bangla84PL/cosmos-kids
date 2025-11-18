@@ -9,6 +9,9 @@ import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import { Plus, TrendingUp, Award, Clock } from 'lucide-react';
 
+// Force dynamic rendering to prevent build-time errors with Supabase client
+export const dynamic = 'force-dynamic';
+
 export default function ParentDashboard() {
   const [children, setChildren] = useState<Child[]>([]);
   const [isLoading, setIsLoading] = useState(true);
